@@ -1,0 +1,11 @@
+{
+  "menu": {
+    "home": "Početna",
+    "about": "O meni",
+    "projects": "Moji projekti",
+    "contacts": "Kontakti"
+  },
+  "user": {
+    "name": "Evgenia Diakova"
+  }
+}

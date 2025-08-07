@@ -1,0 +1,39 @@
+.pageContacts {
+  padding: 1rem 1.5rem;
+  background-color: #fff;
+  border: thick double rgb(198, 144, 239);
+  box-shadow: 0 2px 12px indigo;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: rgb(7, 154, 146);
+
+  h2 {
+    color: #f5298c;
+    font-weight: 600;
+  }
+}
+.contactItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  & a {
+    color: rgb(7, 154, 146);
+  }
+  & a:visited {
+    color: indigo;
+  }
+}
+
+.contactLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.imgKey {
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,231 @@
+.navigationBar {
+  padding: 0;
+  background: white;
+}
+.navContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: relative;
+  padding: 10px 200px;
+  @media (max-width: 1100px) {
+    padding: 10px 100px;
+  }
+  @media (max-width: 750px) {
+    padding: 10px 50px;
+  }
+  @media (max-width: 500px) {
+    padding: 10px 20px;
+  }
+  @media (max-width: 400px) {
+    padding: 10px 10px;
+  }
+}
+.navBrand {
+  flex-shrink: 0;
+  @media (max-width: 900px) {
+    flex-grow: 1;
+  }
+}
+.userName {
+  font-size: 30px;
+  font-weight: 800;
+  color: #f5298c;
+  border-radius: 8px;
+  white-space: nowrap;
+
+  @media (max-width: 400px) {
+    font-size: 20px;
+  }
+}
+
+.hamburgerBtn {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  @media (max-width: 400px) {
+    width: 18px;
+    height: 18px;
+  }
+}
+.hamburgerBtn span,
+.hamburgerBtn span::before,
+.hamburgerBtn span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: aquamarine;
+  transition: all 0.3s ease;
+  content: "";
+}
+.hamburgerBtn span {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hamburgerBtn span::before {
+  top: -8px;
+  @media (max-width: 400px) {
+    top: -6px;
+  }
+}
+.hamburgerBtn span::after {
+  top: 8px;
+  @media (max-width: 400px) {
+    top: 6px;
+  }
+}
+.hamburgerBtn.open span {
+  background-color: transparent;
+}
+.hamburgerBtn.open span::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+.hamburgerBtn.open span::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+.navMenu {
+  display: flex;
+  justify-content: center;
+  order: 1;
+  cursor: pointer;
+  position: relative;
+  @media (max-width: 900px) {
+    order: 2;
+  }
+}
+.navList.desktop {
+  display: flex;
+  gap: 20px;
+  color: rgb(7, 154, 146);
+}
+.navList.desktop .navItem {
+  padding: 3px;
+  &:hover {
+    color: indigo;
+    background-color: rgb(236, 211, 241);
+    border-radius: 8px;
+  }
+}
+
+.navList.mobile,
+.languageDropdown {
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  position: absolute;
+  right: 0;
+  top: 60px;
+  border: 2px solid rgb(198, 144, 239);
+  border-radius: 8px;
+  background-color: white;
+  color: indigo;
+  transition: color 0.2s ease;
+  @media (max-width: 400px) {
+    top: 55px;
+  }
+}
+
+.languageMenu,
+.languageToggleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 5px;
+  order: 2;
+  width: 125px;
+  position: relative;
+  @media (max-width: 900px) {
+    order: 1;
+    width: 70px;
+  }
+}
+.languageToggleBtn {
+  border: none;
+  border-radius: 8px;
+  background: none;
+  padding: 0 5px;
+  color: #f5298c;
+  &:hover {
+    border: 2px solid rgb(198, 144, 239);
+    color: indigo;
+    transition: color 0.2s ease;
+  }
+}
+
+.languageToggleBtn span {
+  @media (max-width: 400px) {
+    font-size: 20px;
+  }
+  @media (max-width: 400px) {
+    font-size: 15px;
+  }
+}
+
+.globeImg {
+  width: 18px;
+}
+.arrowImg {
+  width: 15px;
+  &.up {
+    transform: rotate(180deg);
+  }
+}
+.languageDropdown {
+  right: -2%;
+  top: 34px;
+  width: 125px;
+  z-index: 100;
+
+  @media (max-width: 900px) {
+    width: 70px;
+  }
+}
+
+.navList .navItem,
+.languageOption {
+  padding: 2px 25px;
+  flex-direction: column;
+  align-items: start;
+  font-size: 18px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.navList.mobile .navItem:hover,
+.languageOption:hover {
+  background-color: rgb(236, 211, 241);
+  color: #f5298c;
+  width: 100%;
+}
+.navList.mobile .navItem:first-child,
+.languageOption:first-child {
+  border-radius: 8px 8px 0 0;
+}
+.navList.mobile .navItem:last-child,
+.languageOption:last-child {
+  border-radius: 0 0 8px 8px;
+}
+.languageDropdown span,
+.languageOption span {
+  display: flex;
+  align-items: start;
+  font-size: 18px;
+}
+.hrLine {
+  margin: 0 3px;
+  border-top: 0.5px solid rgb(198, 144, 239);
+  opacity: 0.6;
+}
+.hrLine:last-child {
+  display: none;
+}

@@ -1,0 +1,11 @@
+{
+  "menu": {
+    "home": "Home",
+    "about": "About",
+    "projects": "My projects",
+    "contacts": "Contacts"
+  },
+  "user": {
+    "name": "Evgenia Diakova"
+  }
+}
