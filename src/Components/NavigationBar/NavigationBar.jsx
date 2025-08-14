@@ -1,20 +1,24 @@
 import styles from "./NavigationBar.module.css";
 import { Icon } from "../Icon/Icon";
-import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 import { language } from "../../i18n";
-import { useNavigate } from "react-router-dom";
+import { Contacts } from "../Contacts";
 
-export const NavigationBar = ({ isSmallScreen, setIsSmallScreen }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLangMenuOpen, setIslangMenuOpen] = useState(false);
-
-  const { t, i18n } = useTranslation();
-  const currentLang = language.find((lang) => lang.code === i18n.language);
-  // const menuSections = ["home", "about", "projects", "contacts"];
+export const NavigationBar = ({
+  t,
+  i18n,
+  currentLang,
+  isSmallScreen,
+  setIsSmallScreen,
+  isMenuOpen,
+  setIsMenuOpen,
+  isLangMenuOpen,
+  setIslangMenuOpen,
+  activeSection,
+  onMenuClick,
+  onLanguageSelect,
+}) => {
   const menuSections = ["about", "projects", "contacts"];
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -30,17 +34,9 @@ export const NavigationBar = ({ isSmallScreen, setIsSmallScreen }) => {
     setIslangMenuOpen(false);
   };
 
-  const handleMenuClick = (section) => {
-    setIsMenuOpen((prev) => !prev);
-    // navigate(section === "home" ? "/" : `/${section}`);
-    navigate(section === "about" ? "/" : `/${section}`);
-  };
-
-  const handleLanguageSelect = (e, code) => {
-    e.stopPropagation();
-    i18n.changeLanguage(code);
-    localStorage.setItem("language", code);
-    setIslangMenuOpen((prev) => !prev);
+  const handleCloseMenu = () => {
+    setIsMenuOpen(false);
+    setIslangMenuOpen(false);
   };
 
   return (
@@ -52,7 +48,7 @@ export const NavigationBar = ({ isSmallScreen, setIsSmallScreen }) => {
           </div>
 
           <div className={styles.navMenu}>
-            {isSmallScreen && (
+            {isSmallScreen ? (
               <button
                 className={`${styles.hamburgerBtn} ${
                   isMenuOpen ? styles.open : ""
@@ -62,18 +58,15 @@ export const NavigationBar = ({ isSmallScreen, setIsSmallScreen }) => {
               >
                 <span></span>
               </button>
-            )}
-            {(isMenuOpen || !isSmallScreen) && (
-              <ul
-                className={`${styles.navList} ${
-                  isSmallScreen ? styles.mobile : styles.desktop
-                }`}
-              >
+            ) : (
+              <ul className={`${styles.navList} ${styles.desktop}`}>
                 {menuSections.map((section, index) => (
                   <li
-                    className={styles.navItem}
                     key={index}
-                    onClick={() => handleMenuClick(section)}
+                    onClick={() => onMenuClick(section)}
+                    className={`${styles.navItem} ${
+                      activeSection === section ? styles.active : ""
+                    }`}
                   >
                     {t(`menu.${section}`)}
                   </li>
@@ -82,7 +75,10 @@ export const NavigationBar = ({ isSmallScreen, setIsSmallScreen }) => {
             )}
           </div>
 
-          <div className={styles.languageMenu}>
+          <div
+            className={styles.languageMenu}
+            onMouseLeave={() => setIslangMenuOpen(false)}
+          >
             <button
               className={styles.languageToggleBtn}
               type="button"
@@ -91,7 +87,6 @@ export const NavigationBar = ({ isSmallScreen, setIsSmallScreen }) => {
               }}
             >
               <Icon name="globe" className={styles.globeImg} />
-
               {isSmallScreen ? (
                 <span>{currentLang?.flag}</span>
               ) : (
@@ -103,29 +98,73 @@ export const NavigationBar = ({ isSmallScreen, setIsSmallScreen }) => {
                   isLangMenuOpen ? styles.up : ""
                 }`}
               />
-              {isLangMenuOpen && (
-                <ul className={styles.languageDropdown}>
-                  {language.map(({ code, label, flag }) => (
-                    <li
-                      key={code}
-                      onClick={(e) => handleLanguageSelect(e, code)}
-                      className={`${styles.languageOption} ${
-                        i18n.language === code ? styles.selected : ""
-                      } `}
-                    >
-                      {isSmallScreen ? (
-                        <span>{flag}</span>
-                      ) : (
-                        <span>{label}</span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              )}
             </button>
+
+            {isLangMenuOpen && (
+              <ul className={styles.languageDropdown}>
+                {language.map(({ code, label, flag }) => (
+                  <li
+                    key={code}
+                    tabIndex={0}
+                    onClick={(e) => {
+                      onLanguageSelect(e, code);
+                    }}
+                    className={`${styles.languageOption} ${
+                      i18n.language === code ? styles.selected : ""
+                    } `}
+                  >
+                    {isSmallScreen ? <span>{flag}</span> : <span>{label}</span>}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       </nav>
+
+      {isSmallScreen && (
+        <>
+          <div
+            className={`${styles.overlay} ${
+              isMenuOpen ? styles.showOverlay : ""
+            }`}
+            onClick={handleCloseMenu}
+          />
+          <aside
+            className={`${styles.sideMenu} ${
+              isMenuOpen ? styles.openMenu : ""
+            }`}
+          >
+            <div className={styles.menuConteiner}>
+              <button
+                className={`${styles.hamburgerBtn} ${
+                  isMenuOpen ? styles.open : ""
+                } `}
+                type="button"
+                onClick={handleToggleMenu}
+              >
+                <span></span>
+              </button>
+              <ul className={styles.navListMobile}>
+                {menuSections.map((section, index) => (
+                  <li
+                    className={styles.navItemMobile}
+                    key={index}
+                    onClick={() => {
+                      onMenuClick(section);
+                      handleCloseMenu();
+                    }}
+                  >
+                    {t(`menu.${section}`)}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <Contacts isMenuOpen={isMenuOpen} />
+          </aside>
+        </>
+      )}
     </>
   );
 };

@@ -1,27 +1,37 @@
-import { aboutUserInf } from "./aboutUserInf";
 import styles from "./PageAboutUser.module.css";
 
-export const PageAboutUser = () => {
+export const PageAboutUser = ({ t, wrapShortWords }) => {
+  const sectionTitles = t("aboutUserInf.sectionTitles", {
+    returnObjects: true,
+  });
+  const descriptionAboutUser = t("aboutUserInf.description", {
+    returnObjects: true,
+  });
+  const skills = t("aboutUserInf.skills", {
+    returnObjects: true,
+  });
+  const experience = t("aboutUserInf.experience", {
+    returnObjects: true,
+  });
+
   return (
     <div className={styles.aboutUserPage}>
-      <h1>Информация обо мне</h1>
+      <h1>{sectionTitles[0]}</h1>
       <section className={styles.descriptionSection}>
-        {aboutUserInf.description.map((paragraf, index) => (
+        {descriptionAboutUser.map((paragraf, index) => (
           <p key={index} className={styles.userDescription}>
-            {paragraf}
+            {wrapShortWords(paragraf, styles.shortWord)}
           </p>
         ))}
       </section>
 
       <section className={styles.skillsSection}>
-        <h2 className={styles.skillsTitle}>
-          Во время обучения применяла следующие технологии:
-        </h2>
+        <h2 className={styles.skillsTitle}>{sectionTitles[1]}</h2>
 
         <div className={styles.skillsGroup}>
-          <h3>Фреймворки и библиотеки</h3>
+          <h3>{sectionTitles[2]}</h3>
           <ul className={styles.skillsList}>
-            {aboutUserInf.skills.frameworks.map((skill, index) => (
+            {skills.frameworks.map((skill, index) => (
               <li key={index} className={styles.skillsItem}>
                 {skill}
               </li>
@@ -30,9 +40,9 @@ export const PageAboutUser = () => {
         </div>
 
         <div className={styles.skillsGroup}>
-          <h3>Сборщики</h3>
+          <h3>{sectionTitles[3]}</h3>
           <ul className={styles.skillsList}>
-            {aboutUserInf.skills.builders.map((skill, index) => (
+            {skills.builders.map((skill, index) => (
               <li key={index} className={styles.skillsItem}>
                 {skill}
               </li>
@@ -41,9 +51,9 @@ export const PageAboutUser = () => {
         </div>
 
         <div className={styles.skillsGroup}>
-          <h3>Язык программирования</h3>
+          <h3>{sectionTitles[4]}</h3>
           <ul className={styles.skillsList}>
-            {aboutUserInf.skills.programLang.map((skill, index) => (
+            {skills.programLang.map((skill, index) => (
               <li key={index} className={styles.skillsItem}>
                 {skill}
               </li>
@@ -52,9 +62,9 @@ export const PageAboutUser = () => {
         </div>
 
         <div className={styles.skillsGroup}>
-          <h3>Стилизация</h3>
+          <h3>{sectionTitles[5]}</h3>
           <ul className={styles.skillsList}>
-            {aboutUserInf.skills.styles.map((skill, index) => (
+            {skills.styles.map((skill, index) => (
               <li key={index} className={styles.skillsItem}>
                 {skill}
               </li>
@@ -63,9 +73,9 @@ export const PageAboutUser = () => {
         </div>
 
         <div className={styles.skillsGroup}>
-          <h3>Аутентификация и хостинг</h3>
+          <h3>{sectionTitles[6]}</h3>
           <ul className={styles.skillsList}>
-            {aboutUserInf.skills.authHosting.map((skill, index) => (
+            {skills.authHosting.map((skill, index) => (
               <li key={index} className={styles.skillsItem}>
                 {skill}
               </li>
@@ -74,9 +84,9 @@ export const PageAboutUser = () => {
         </div>
 
         <div className={styles.skillsGroup}>
-          <h3>Дополнительные технологии</h3>
+          <h3>{sectionTitles[7]}</h3>
           <ul className={styles.skillsList}>
-            {aboutUserInf.skills.addSkills.map((skill, index) => (
+            {skills.addSkills.map((skill, index) => (
               <li key={index} className={styles.skillsItem}>
                 {skill}
               </li>
@@ -86,19 +96,23 @@ export const PageAboutUser = () => {
       </section>
 
       <section className={styles.experienceSection}>
-        <h2 className={styles.experienceTitle}>Мой опыт включает:</h2>
+        <h2 className={styles.experienceTitle}>{sectionTitles[8]}</h2>
         <ul className={styles.experienceList}>
-          {aboutUserInf?.experience?.map((experience, index) => (
+          {experience.map((experience, index) => (
             <li key={index} className={styles.experienceItem}>
-              {experience}
+              {wrapShortWords(experience, styles.shortWord)}
             </li>
           ))}
         </ul>
       </section>
 
       <section className={styles.additionalInfoSection}>
-        <p className={styles.userTarget}>{aboutUserInf.target}</p>
-        <p className={styles.userAddInfo}>{aboutUserInf.addInfo}</p>
+        <p className={styles.userTarget}>
+          {wrapShortWords(t("aboutUserInf.target"), styles.shortWord)}
+        </p>
+        <p className={styles.userAddInfo}>
+          {wrapShortWords(t("aboutUserInf.addInfo"), styles.shortWord)}
+        </p>
       </section>
     </div>
   );

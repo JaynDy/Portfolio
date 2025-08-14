@@ -1,0 +1,31 @@
+.projectNavConteiner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.3rem 0;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  a {
+    font-size: 16px;
+    text-decoration: none;
+    color: var(--text-color-brown);
+    @media screen and (max-width: 400px) {
+      font-size: 14px;
+    }
+  }
+}
+
+.navButton {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navButton:hover {
+  text-decoration: underline;
+}
+
+.navButtonDisabled {
+  color: #ccc;
+}

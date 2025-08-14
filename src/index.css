@@ -1,3 +1,38 @@
+:root {
+  --heading-font: "Libertinus Math", sans-serif;
+  --body-font: "Open Sans", sans-serif;
+
+  --text-color-main: #303736;
+  --text-color-brown: #6b574e;
+  --text-color-orange: #e60023;
+
+  --text-color-aquamarine: #59bd99;
+  --text-color-yellow: #d0aa5b;
+  --text-color-lightBlue: #1fa1b8;
+  --text-color-beige: #e8dfca;
+  --link-color: #3b1261;
+
+  --block-background-brown: #6d635e;
+  --block-background-beige: #e8dfca;
+  --block-background-lightBeige: #f5f3ef;
+  --block-background-aquamarine: #59bd99;
+  --block-background-orange: #e60023;
+}
+
+h1,
+h2,
+h3,
+p,
+li,
+strong {
+  font-family: var(--heading-font);
+  color: var(--text-color-main);
+}
+
+ul {
+  list-style: none;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;

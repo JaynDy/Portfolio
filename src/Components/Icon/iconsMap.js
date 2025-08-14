@@ -5,6 +5,8 @@ import email from "../../assets/email.svg?react";
 import telegram from "../../assets/telegram.svg?react";
 import github from "../../assets/github.svg?react";
 import linkedin from "../../assets/linkedin.svg?react";
+import sketchbook from "../../assets/sketchbook.svg?react";
+import clover from "../../assets/clover.svg?react";
 
 export const iconsMap = {
   globe,
@@ -14,4 +16,6 @@ export const iconsMap = {
   telegram,
   github,
   linkedin,
+  sketchbook,
+  clover,
 };
