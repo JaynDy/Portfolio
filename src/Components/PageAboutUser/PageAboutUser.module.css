@@ -54,5 +54,5 @@
   white-space: nowrap;
 }
 .projectsLink:visited {
-  /* color: var(--link-color); */
+  color: var(--link-color);
 }
