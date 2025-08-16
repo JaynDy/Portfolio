@@ -2,23 +2,9 @@
   min-height: 100vh;
   background-color: var(--block-background-lightBeige);
   box-shadow: 0 2px 12px var(--block-background-brown);
-
-  padding: 64px 200px 20px;
-  @media (max-width: 1100px) {
-    padding: 64px 100px 20px;
-  }
-  @media (max-width: 750px) {
-    padding: 64px 50px 20px;
-  }
-  @media screen and (max-width: 680px) {
-    font-size: 16px;
-  }
+  padding: var(--page-padding);
   @media screen and (max-width: 500px) {
-    padding: 60px 40px 20px;
-  }
-  @media screen and (max-width: 400px) {
-    padding: 60px 30px 20px;
-    font-size: 14px;
+    min-height: calc(100vh - 8.4vh);
   }
 }
 
@@ -28,16 +14,6 @@
   justify-content: space-between;
   gap: 0.5rem;
 }
-.projectPage h2 {
-  color: var(--text-color-brown);
-  font-weight: 800;
-  padding: 25px 0 5px;
-  font-size: 22px;
-  font-weight: 600;
-  @media screen and (max-width: 400px) {
-    font-size: 16px;
-  }
-}
 
 .projectCard a {
   display: flex;
@@ -45,18 +21,12 @@
   align-items: center;
   gap: 5px;
   margin-right: 1rem;
-  font-size: 20px;
   text-decoration: none;
   color: var(--text-color-main);
   font-weight: 500;
   padding: 0;
 }
 
-a.projectLink {
-  @media screen and (max-width: 400px) {
-    font-size: 16px;
-  }
-}
 .projectLink:hover {
   text-decoration: underline;
 }

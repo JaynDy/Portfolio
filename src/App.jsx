@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { NavigationBar } from "./Components/NavigationBar";
 import { Route, Routes, useNavigate } from "react-router-dom";
@@ -73,16 +73,38 @@ function App() {
     setIslangMenuOpen((prev) => !prev);
   };
 
-  const wrapShortWords = (text, className) => {
-    return text.split(" ").map((word, i) =>
-      word.length <= 3 ? (
-        <span key={i} className={className}>
-          {word}{" "}
-        </span>
-      ) : (
-        word + " "
-      )
-    );
+  const wrapShortWords = (content, className) => {
+    if (Array.isArray(content)) {
+      return content.map((child, i) => (
+        <React.Fragment key={i}>
+          {wrapShortWords(child, className)}
+        </React.Fragment>
+      ));
+    }
+
+    if (React.isValidElement(content)) {
+      return React.cloneElement(content, {
+        children: wrapShortWords(content.props.children, className),
+      });
+    }
+
+    if (typeof content === "string") {
+      return content.split(/\s+/).map((word, i, arr) => {
+        if (!word) return null;
+        const isLast = i === arr.length - 1;
+
+        return word.length <= 3 ? (
+          <span key={i} className={className}>
+            {word}
+            {!isLast && " "}
+          </span>
+        ) : (
+          word + (!isLast ? " " : "")
+        );
+      });
+    }
+
+    return content;
   };
 
   return (
@@ -114,7 +136,13 @@ function App() {
           <Routes>
             <Route
               path={AppRoutes.About}
-              element={<PageAboutUser t={t} wrapShortWords={wrapShortWords} />}
+              element={
+                <PageAboutUser
+                  t={t}
+                  wrapShortWords={wrapShortWords}
+                  setActiveSection={setActiveSection}
+                />
+              }
             />
             <Route
               path={AppRoutes.Projects}

@@ -6,7 +6,7 @@ export const ProjectsPage = ({ t, projectData, setActiveSection }) => {
   return (
     <div className={styles.projectPage}>
       <div className={styles.projectList}>
-        <h2>{t("projectPageInf.titles")}</h2>
+        <h1>{t("projectPageInf.titles")}</h1>
 
         {projectData.map((project, index) => (
           <div key={index} className={styles.projectCard}>

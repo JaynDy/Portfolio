@@ -88,7 +88,7 @@ export const PageContacts = ({
 
   return (
     <div className={`${styles.pageContacts} `}>
-      {!isMenuOpen && !isSmallScreen && <h2>{t("contactInf.title")}</h2>}
+      {!isMenuOpen && !isSmallScreen && <h1>{t("contactInf.title")}</h1>}
 
       <div className={styles.postcard}>
         <div className={styles.header}>
@@ -139,7 +139,7 @@ export const PageContacts = ({
               <div className={styles.error}>{errors.message}</div>
             )}
             <div className={styles.buttonWrapper}>
-              <button type="submit">Send message</button>
+              <button type="submit">{t("contactInf.btnName")}</button>
             </div>
           </form>
         </div>

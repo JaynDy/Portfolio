@@ -68,7 +68,7 @@
       "Integrating external APIs in projects such as a weather widget and applications with filtering and themes that work with real data."
     ],
     "target": "I am currently seeking a position that will allow me to apply and deepen my acquired knowledge. I am result-oriented, approach tasks responsibly, strive for continuous development, and aim to master new technologies. I have a high level of self-organization, attention to detail, and practical experience in achieving set goals.",
-    "addInfo": "In the 'My Projects' section, you will find examples of my work, which I currently consider the most interesting and representative. Each project is publicly available and can be viewed via the link provided in the project card. GitHub repositories are also available, where you can explore the architecture and code structure."
+    "addInfo": "In the <projectLink>My Projects</projectLink> section, you will find examples of my work, which I currently consider the most interesting and representative. Each project is publicly available and can be viewed via the link provided in the project card. GitHub repositories are also available, where you can explore the architecture and code structure."
   },
 
   "projectPageInf": {
@@ -83,6 +83,7 @@
     "title": "Contact Information",
     "postcardTitle": "Send me a message",
     "placeholders": ["Preffered name", "Email address", "Message text"],
+    "btnName": "Send message",
     "inputErrors": [
       "Name is required",
       "Email is required",

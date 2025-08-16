@@ -1,7 +1,6 @@
 .navigationBar {
   padding: 0;
   background: var(--block-background-beige);
-  /* background-image: url("../../assets/canvas.jpg"); */
 }
 .navContent {
   display: flex;
@@ -10,20 +9,7 @@
   flex-wrap: wrap;
   gap: 10px;
   position: relative;
-
-  padding: 10px 200px;
-  @media (max-width: 1100px) {
-    padding: 10px 100px;
-  }
-  @media (max-width: 750px) {
-    padding: 10px 50px;
-  }
-  @media (max-width: 500px) {
-    padding: 10px 20px;
-  }
-  @media (max-width: 400px) {
-    padding: 10px 10px;
-  }
+  padding: var(--nav-padding);
 }
 .navBrand {
   flex-shrink: 0;
@@ -35,10 +21,15 @@
   font-size: 30px;
   font-weight: 800;
   color: var(--text-color-brown);
-  /* color: var(--text-color-orange); */
 
   @media (max-width: 400px) {
-    font-size: 20px;
+    font-size: 25px;
+  }
+  @media (max-width: 330px) {
+    font-size: 23px;
+  }
+  @media (max-width: 300px) {
+    font-size: 21px;
   }
 }
 
@@ -180,9 +171,12 @@
   border-radius: 8px;
   background: none;
   padding: 0 5px;
-  color: var(--text-color-main);
+  /* color: var(--text-color-main); */
+  color: var(--text-color-orange);
+  border: 2px solid transparent;
+
   &:hover {
-    border: 2px solid var(--text-color-beige);
+    border-color: var(--text-color-beige);
     color: var(--text-color-beige);
     background-color: var(--block-background-brown);
     /* background-color: var(--block-background-orange); */

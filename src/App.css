@@ -1,5 +1,5 @@
 .container {
-  background-image: url("assets/canvas.jpg");
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }

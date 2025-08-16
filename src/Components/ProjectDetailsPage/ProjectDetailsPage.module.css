@@ -6,26 +6,19 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-
-  padding: 80px 200px 20px;
-  @media (max-width: 1100px) {
-    padding: 80px 100px 20px;
-  }
-  @media (max-width: 750px) {
-    padding: 80px 50px 20px;
-  }
+  padding: var(--page-padding);
   @media screen and (max-width: 500px) {
-    padding: 70px 40px 20px;
-  }
-  @media screen and (max-width: 400px) {
-    padding: 70px 30px 20px;
+    min-height: calc(100vh - 8.4vh);
   }
 }
 .projectTitle {
   margin-bottom: 0.5rem;
   font-size: 22px;
   font-weight: 700;
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 500px) {
+    font-size: 18px;
+  }
+  @media screen and (max-width: 330px) {
     font-size: 16px;
   }
 }
@@ -33,17 +26,10 @@
 .projectDescription,
 .technologies {
   margin-bottom: 0.5rem;
-  font-size: 18px;
   text-align: justify;
-  @media screen and (max-width: 680px) {
-    font-size: 16px;
-  }
 }
-p.technologies {
-  font-size: 18px;
-}
+
 .technologies strong {
-  font-size: 18px;
   font-weight: 700;
 }
 .projectLinks {
@@ -51,6 +37,7 @@ p.technologies {
   flex-direction: row;
   @media screen and (max-width: 530px) {
     flex-direction: column;
+    gap: 10px;
   }
 }
 .projectLinks a {
@@ -62,7 +49,6 @@ p.technologies {
   text-decoration: none;
   color: var(--text-color-main);
   font-weight: 500;
-  font-size: 16px;
 }
 
 .projectLinks a:hover {
@@ -100,9 +86,6 @@ p.technologies {
 .technologiesGroup h3 {
   margin-bottom: 10px;
   font-weight: 600;
-  @media screen and (max-width: 680px) {
-    font-size: 16px;
-  }
 }
 .technologiesList {
   display: flex;
@@ -116,16 +99,8 @@ p.technologies {
   background-color: var(--block-background-beige);
   padding: 6px 12px;
   border-radius: 6px;
-  font-size: 18px;
   white-space: nowrap;
-  @media screen and (max-width: 680px) {
-    font-size: 16px;
-  }
 }
 .shortWord {
   white-space: nowrap;
-  font-size: 18px;
-  @media screen and (max-width: 680px) {
-    font-size: 16px;
-  }
 }

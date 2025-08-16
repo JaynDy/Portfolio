@@ -5,18 +5,37 @@
   --text-color-main: #303736;
   --text-color-brown: #6b574e;
   --text-color-orange: #e60023;
-
-  --text-color-aquamarine: #59bd99;
-  --text-color-yellow: #d0aa5b;
-  --text-color-lightBlue: #1fa1b8;
   --text-color-beige: #e8dfca;
-  --link-color: #3b1261;
 
-  --block-background-brown: #6d635e;
+  --link-color: #4a038e;
+
+  --block-background-brown: #6b574e;
   --block-background-beige: #e8dfca;
   --block-background-lightBeige: #f5f3ef;
-  --block-background-aquamarine: #59bd99;
   --block-background-orange: #e60023;
+
+  --nav-padding: 10px 200px;
+  --page-padding: 64px 200px 20px;
+  @media (max-width: 1150px) {
+    --nav-padding: 10px 100px;
+    --page-padding: 64px 100px 20px;
+  }
+  @media (max-width: 950px) {
+    --nav-padding: 10px 70px;
+    --page-padding: 64px 70px 20px;
+  }
+  @media (max-width: 750px) {
+    --nav-padding: 10px 50px;
+    --page-padding: 60px 50px 20px;
+  }
+  @media (max-width: 500px) {
+    --nav-padding: 10px 20px;
+    --page-padding: 60px 20px 20px;
+  }
+  @media (max-width: 400px) {
+    --nav-padding: 10px 10px;
+    --page-padding: 60px 10px 20px;
+  }
 }
 
 h1,
@@ -26,11 +45,47 @@ p,
 li,
 strong {
   font-family: var(--heading-font);
-  color: var(--text-color-main);
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 800;
+  padding: 25px 0 0;
+  color: var(--text-color-brown);
+
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
+  }
+  @media screen and (max-width: 330px) {
+    font-size: 18px;
+  }
+}
+
+h2,
+h3,
+p,
+li,
+a,
+strong,
+span {
+  font-size: 20px;
+  @media (max-width: 950px) {
+    font-size: 18px;
+  }
+  @media (max-width: 680px) {
+    font-size: 18px;
+  }
+  @media (max-width: 400px) {
+    font-size: 16px;
+  }
+  @media (max-width: 300px) {
+    font-size: 14px;
+  }
 }
 
 ul {
   list-style: none;
+  margin: 0;
 }
 
 * {

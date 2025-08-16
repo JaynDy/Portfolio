@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom";
 import styles from "./PageAboutUser.module.css";
+import { AppRoutes } from "../../AppRoutes";
+import { Trans } from "react-i18next";
 
 export const PageAboutUser = ({ t, wrapShortWords }) => {
   const sectionTitles = t("aboutUserInf.sectionTitles", {
@@ -110,8 +113,23 @@ export const PageAboutUser = ({ t, wrapShortWords }) => {
         <p className={styles.userTarget}>
           {wrapShortWords(t("aboutUserInf.target"), styles.shortWord)}
         </p>
+
         <p className={styles.userAddInfo}>
-          {wrapShortWords(t("aboutUserInf.addInfo"), styles.shortWord)}
+          {wrapShortWords(
+            <Trans
+              i18nKey="aboutUserInf.addInfo"
+              components={{
+                projectLink: (
+                  <Link
+                    to={AppRoutes.Projects}
+                    className={styles.projectsLink}
+                    onClick={() => setActiveSection?.("Projects")}
+                  />
+                ),
+              }}
+            />,
+            styles.shortWord
+          )}
         </p>
       </section>
     </div>

@@ -1,45 +1,14 @@
 .aboutUserPage {
   background-color: var(--block-background-lightBeige);
-  box-shadow: 0 2px 12px var(--block-background-brown);
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-
-  h1 {
-    padding: 25px 0 0;
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--text-color-brown);
-    @media screen and (max-width: 680px) {
-      font-size: 16px;
-    }
-  }
-
-  padding: 64px 200px 20px;
-  @media (max-width: 1100px) {
-    padding: 64px 100px 20px;
-  }
-  @media (max-width: 750px) {
-    padding: 64px 50px 20px;
-  }
-  @media screen and (max-width: 680px) {
-    font-size: 16px;
-  }
-  @media screen and (max-width: 500px) {
-    padding: 60px 40px 20px;
-  }
-  @media screen and (max-width: 400px) {
-    padding: 60px 30px 20px;
-    font-size: 14px;
-  }
+  padding: var(--page-padding);
 }
 
 .skillsTitle,
 .experienceTitle {
   margin-bottom: 20px;
-  @media screen and (max-width: 680px) {
-    font-size: 16px;
-  }
 }
 
 .skillsGroup {
@@ -48,9 +17,6 @@
 
 .skillsGroup h3 {
   margin-bottom: 10px;
-  @media screen and (max-width: 680px) {
-    font-size: 16px;
-  }
 }
 .skillsList {
   display: flex;
@@ -65,14 +31,7 @@
   background-color: var(--block-background-beige);
   padding: 6px 12px;
   border-radius: 6px;
-  font-size: 18px;
   white-space: nowrap;
-  @media screen and (max-width: 680px) {
-    font-size: 16px;
-  }
-  @media screen and (max-width: 400px) {
-    font-size: 14px;
-  }
 }
 .userDescription,
 .userAddInfo,
@@ -81,12 +40,6 @@
   text-align: justify;
   word-wrap: break-word;
   word-break: break-word;
-  @media screen and (max-width: 680px) {
-    font-size: 16px;
-  }
-  @media screen and (max-width: 400px) {
-    font-size: 14px;
-  }
 }
 .experienceList {
   padding-left: 20px;
@@ -96,20 +49,10 @@
 .experienceItem {
   margin-bottom: 10px;
   text-align: justify;
-  @media screen and (max-width: 680px) {
-    font-size: 16px;
-  }
-  @media screen and (max-width: 400px) {
-    font-size: 14px;
-  }
 }
 .shortWord {
   white-space: nowrap;
-  font-size: 18px;
-  @media screen and (max-width: 680px) {
-    font-size: 16px;
-  }
-  @media screen and (max-width: 400px) {
-    font-size: 14px;
-  }
+}
+.projectsLink:visited {
+  /* color: var(--link-color); */
 }
