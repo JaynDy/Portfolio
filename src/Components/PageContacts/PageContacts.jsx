@@ -16,6 +16,8 @@ export const PageContacts = ({
     returnObjects: true,
   });
 
+  const [isSent, setIsSent] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -62,17 +64,18 @@ export const PageContacts = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (isSent) return;
 
     emailjs
       .send(
-        "YOUR_SERVICE_ID", // ID сервиса
-        "YOUR_TEMPLATE_ID", // ID шаблона
+        "service_cgxri2l",
+        "template_7i0dxrf",
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
         },
-        "YOUR_PUBLIC_KEY" // публичный ключ
+        "Nt9X4L-Zvu_wkf2QU"
       )
       .then(
         () => {
@@ -139,7 +142,9 @@ export const PageContacts = ({
               <div className={styles.error}>{errors.message}</div>
             )}
             <div className={styles.buttonWrapper}>
-              <button type="submit">{t("contactInf.btnName")}</button>
+              <button type="submit" disabled={isSent}>
+                {t("contactInf.btnName")}
+              </button>
             </div>
           </form>
         </div>
