@@ -4,7 +4,7 @@
   align-items: center;
   margin-bottom: 1rem;
   padding: 0.3rem 0;
-  background-color: #f8f8f8;
+  background-color: var(--text-color-lightBeige);
   border-radius: 8px;
   @media screen and (max-width: 400px) {
     margin-bottom: 0.2rem;
@@ -18,16 +18,6 @@
       font-size: 14px;
     }
   }
-}
-
-.navButton {
-  color: #0077cc;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.navButton:hover {
-  text-decoration: underline;
 }
 
 .navButtonDisabled {

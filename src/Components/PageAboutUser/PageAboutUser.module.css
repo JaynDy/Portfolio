@@ -53,6 +53,9 @@
 .shortWord {
   white-space: nowrap;
 }
+.projectsLink {
+  color: var(--text-color-brown);
+}
 .projectsLink:visited {
   color: var(--link-color);
 }

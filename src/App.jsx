@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { NavigationBar } from "./Components/NavigationBar";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { AppRoutes } from "./AppRoutes";
 import { ProjectsPage } from "./Components/ProjectsPage";
 import { PageAboutUser } from "./Components/PageAboutUser";
@@ -12,14 +12,11 @@ import { language } from "./i18n";
 import { useTranslation } from "react-i18next";
 
 function App() {
+  const location = useLocation();
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const currentLang = language.find((lang) => lang.code === i18n.language);
-  const projectData = Object.values(
-    t("projectData", {
-      returnObjects: true,
-    })
-  );
+  const projectData = Object.values(t("projectData", { returnObjects: true }));
 
   const [isSmallScreen, setIsSmallScreen] = useState(
     window.matchMedia("(max-width: 900px)").matches
@@ -28,18 +25,35 @@ function App() {
   const [isLangMenuOpen, setIslangMenuOpen] = useState(false);
   const [isOpenPageContacts, setIsOpenPageContacts] = useState(false);
   const [activeSection, setActiveSection] = useState(() => {
-    localStorage.getItem("activeSection") || null;
+    return localStorage.getItem("activeSection") || "about";
   });
 
   useEffect(() => {
-    const savedSection = localStorage.getItem("activeSection");
+    const saved = localStorage.getItem("activeSection") || "about";
+    const currentPath = location.pathname.replace("/", "") || "about";
 
-    if (savedSection) {
-      setActiveSection(savedSection);
-      setIsOpenPageContacts(savedSection === "contacts");
+    if (!currentPath || currentPath === "about") {
+      if (saved !== "about") {
+        navigate(saved === "about" ? "/" : `/${saved}`, { replace: true });
+        setActiveSection(saved);
+        setIsOpenPageContacts(saved === "contacts");
+      }
+    } else {
+      setActiveSection(currentPath);
+      setIsOpenPageContacts(currentPath === "contacts");
     }
-    console.log("isOpenPageContacts", isOpenPageContacts);
   }, []);
+
+  useEffect(() => {
+    const current = location.pathname.replace("/", "") || "about";
+    setActiveSection(current);
+    localStorage.setItem("activeSection", current);
+    setIsOpenPageContacts(current === "contacts");
+  }, [location.pathname]);
+
+  useEffect(() => {
+    console.log("activeSection", activeSection);
+  }, [activeSection]);
 
   useEffect(() => {
     const savedLang = localStorage.getItem("language");
@@ -50,9 +64,7 @@ function App() {
   }, [i18n]);
 
   const handleMenuClick = (section) => {
-    if (activeSection === section) {
-      return;
-    }
+    if (activeSection === section) return;
 
     setActiveSection(section);
     localStorage.setItem("activeSection", section);

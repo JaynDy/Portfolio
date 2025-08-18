@@ -123,7 +123,6 @@ export const PageAboutUser = ({ t, wrapShortWords }) => {
                   <Link
                     to={AppRoutes.Projects}
                     className={styles.projectsLink}
-                    onClick={() => setActiveSection?.("Projects")}
                   />
                 ),
               }}
