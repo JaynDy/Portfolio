@@ -47,6 +47,7 @@ app.post("/send-message", async (req, res) => {
     console.error(err);
     res.json({ success: false, error: "Failed to send message via EmailJS" });
   }
+  console.log("/send-message", messages);
 });
 
 app.post("/validate-message", (req, res) => {
@@ -57,6 +58,7 @@ app.post("/validate-message", (req, res) => {
   }
 
   res.json({ valid: true });
+  console.log("validate-message", messages);
 });
 
 app.listen(5000, () => console.log("Server running on port 5000"));
