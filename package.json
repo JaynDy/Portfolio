@@ -1,35 +1,23 @@
 {
-  "name": "package",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "portfolio_app",
+  "version": "1.0.0",
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "dev": "concurrently \"npm run dev --prefix client\" \"npm run dev --prefix server\""
   },
-  "dependencies": {
-    "@emailjs/browser": "^4.4.1",
-    "i18next": "^25.3.2",
-    "i18next-browser-languagedetector": "^8.2.0",
-    "i18next-http-backend": "^3.0.2",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-i18next": "^15.6.1",
-    "react-router-dom": "^7.7.1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaynDy/Portfolio.git"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JaynDy/Portfolio/issues"
+  },
+  "homepage": "https://github.com/JaynDy/Portfolio#readme",
   "devDependencies": {
-    "@eslint/js": "^9.29.0",
-    "@svgr/webpack": "^8.1.0",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "@vitejs/plugin-react": "^4.5.2",
-    "eslint": "^9.29.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
-    "globals": "^16.2.0",
-    "vite": "^7.0.0",
-    "vite-plugin-svgr": "^4.3.0"
+    "concurrently": "^9.2.0"
   }
 }
