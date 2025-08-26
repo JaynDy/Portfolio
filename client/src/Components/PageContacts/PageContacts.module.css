@@ -189,10 +189,16 @@
   cursor: not-allowed;
 }
 
+.postcardWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .toast {
-  /* position: absolute;
-  top: 75%;
-  right: 27%; */
+  position: absolute;
+  top: 102%;
+  left: 50%;
   transform: translateX(-50%);
   background: var(--block-background-lightBeige);
   color: var(--text-color-brown);
@@ -201,8 +207,20 @@
   z-index: 9999;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   animation: fadeInOut 3s forwards;
-  max-width: 600px;
-  margin: 0 auto;
+  white-space: nowrap;
+  @media (max-width: 950px) {
+    font-size: 18px;
+  }
+  @media (max-width: 680px) {
+    font-size: 18px;
+  }
+  @media (max-width: 400px) {
+    padding: 5px;
+    font-size: 16px;
+  }
+  @media (max-width: 300px) {
+    font-size: 14px;
+  }
 }
 
 /* @keyframes fadeInOut {

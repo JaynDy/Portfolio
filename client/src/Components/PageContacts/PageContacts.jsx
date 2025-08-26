@@ -80,7 +80,7 @@ export const PageContacts = ({
 
   const showToast = (msg) => {
     setToastMessage(msg);
-    setTimeout(() => setToastMessage(""), 3000);
+    setTimeout(() => setToastMessage(""), 100000);
   };
 
   const handleSubmit = async (e) => {
@@ -132,72 +132,76 @@ export const PageContacts = ({
     <div className={`${styles.pageContacts} `}>
       {!isMenuOpen && <h1>{t("contactInf.title")}</h1>}
 
-      <div className={styles.postcard}>
-        <div className={styles.header}>
-          <div className={styles.pattern}>
-            <span className={styles.line}></span>
-            <Icon name="clover" className={styles.cloverImg} />
-            <span className={styles.line}></span>
+      <div className={styles.postcardWrapper}>
+        <div className={styles.postcard}>
+          <div className={styles.header}>
+            <div className={styles.pattern}>
+              <span className={styles.line}></span>
+              <Icon name="clover" className={styles.cloverImg} />
+              <span className={styles.line}></span>
 
-            <h3>{t("contactInf.postcardTitle")}</h3>
-            <span className={styles.line}></span>
-            <Icon name="clover" className={styles.cloverImg} />
-            <span className={styles.line}></span>
-          </div>
-        </div>
-
-        <div className={styles.content}>
-          <div className={styles.iconArea}>
-            <Icon name="sketchbook" className={styles.sketchbookImg} />
-          </div>
-
-          <form
-            className={styles.formArea}
-            ref={form}
-            onSubmit={handleSubmit}
-            noValidate
-          >
-            <input
-              type="text"
-              name="name"
-              placeholder={placeholders[0]}
-              value={formData.name}
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-            {errors.name && <div className={styles.error}>{errors.name}</div>}
-            <input
-              type="email"
-              name="email"
-              placeholder={placeholders[1]}
-              value={formData.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-            {errors.email && <div className={styles.error}>{errors.email}</div>}
-            <textarea
-              name="message"
-              placeholder={placeholders[2]}
-              value={formData.message}
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-            {errors.message && (
-              <div className={styles.error}>{errors.message}</div>
-            )}
-            <div className={styles.buttonWrapper}>
-              <button
-                type="submit"
-                disabled={isSent}
-                className={`${isSent ? styles.disabledBtn : ""}`}
-              >
-                {t("contactInf.btnName")}
-              </button>
+              <h3>{t("contactInf.postcardTitle")}</h3>
+              <span className={styles.line}></span>
+              <Icon name="clover" className={styles.cloverImg} />
+              <span className={styles.line}></span>
             </div>
-          </form>
+          </div>
+
+          <div className={styles.content}>
+            <div className={styles.iconArea}>
+              <Icon name="sketchbook" className={styles.sketchbookImg} />
+            </div>
+
+            <form
+              className={styles.formArea}
+              ref={form}
+              onSubmit={handleSubmit}
+              noValidate
+            >
+              <input
+                type="text"
+                name="name"
+                placeholder={placeholders[0]}
+                value={formData.name}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              {errors.name && <div className={styles.error}>{errors.name}</div>}
+              <input
+                type="email"
+                name="email"
+                placeholder={placeholders[1]}
+                value={formData.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              {errors.email && (
+                <div className={styles.error}>{errors.email}</div>
+              )}
+              <textarea
+                name="message"
+                placeholder={placeholders[2]}
+                value={formData.message}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              {errors.message && (
+                <div className={styles.error}>{errors.message}</div>
+              )}
+              <div className={styles.buttonWrapper}>
+                <button
+                  type="submit"
+                  disabled={isSent}
+                  className={`${isSent ? styles.disabledBtn : ""}`}
+                >
+                  {t("contactInf.btnName")}
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
+        {toastMessage && <div className={styles.toast}>{toastMessage}</div>}
       </div>
-      {toastMessage && <div className={styles.toast}>{toastMessage}</div>}
 
       <Contacts
         isMenuOpen={isMenuOpen}
