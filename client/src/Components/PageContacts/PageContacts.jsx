@@ -80,7 +80,7 @@ export const PageContacts = ({
 
   const showToast = (msg) => {
     setToastMessage(msg);
-    setTimeout(() => setToastMessage(""), 100000);
+    setTimeout(() => setToastMessage(""), 3000);
   };
 
   const handleSubmit = async (e) => {
