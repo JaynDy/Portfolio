@@ -15,6 +15,7 @@
   margin-bottom: 0.5rem;
   font-size: 22px;
   font-weight: 700;
+  color: var(--text-color-main);
   @media screen and (max-width: 500px) {
     font-size: 18px;
   }
@@ -27,10 +28,12 @@
 .technologies {
   margin-bottom: 0.5rem;
   text-align: justify;
+  color: var(--text-color-main);
 }
 
 .technologies strong {
   font-weight: 700;
+  color: var(--text-color-main);
 }
 .projectLinks {
   display: flex;
@@ -73,7 +76,6 @@
     justify-content: center;
   }
 }
-
 .projectIframe {
   height: 100%;
   width: 100%;
@@ -86,6 +88,7 @@
 .technologiesGroup h3 {
   margin-bottom: 10px;
   font-weight: 600;
+  color: var(--text-color-main);
 }
 .technologiesList {
   display: flex;
@@ -100,6 +103,7 @@
   padding: 6px 12px;
   border-radius: 6px;
   white-space: nowrap;
+  color: var(--text-color-main);
 }
 .shortWord {
   white-space: nowrap;

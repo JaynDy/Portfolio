@@ -17,6 +17,8 @@ export const NavigationBar = ({
   activeSection,
   onMenuClick,
   onLanguageSelect,
+  onToggleTheme,
+  currentTheme,
 }) => {
   const menuSections = ["about", "projects", "contacts"];
 
@@ -118,6 +120,20 @@ export const NavigationBar = ({
                 ))}
               </ul>
             )}
+
+            <div className={styles.themeToggle}>
+              <button
+                className={styles.themeToggleBtn}
+                type="button"
+                onClick={onToggleTheme}
+              >
+                {currentTheme === "light" ? (
+                  <Icon name="sun" className={styles.themeIcon} />
+                ) : (
+                  <Icon name="moon" className={styles.themeIcon} />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </nav>

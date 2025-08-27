@@ -7,6 +7,8 @@ import github from "../../assets/github.svg?react";
 import linkedin from "../../assets/linkedin.svg?react";
 import sketchbook from "../../assets/sketchbook.svg?react";
 import clover from "../../assets/clover.svg?react";
+import sun from "../../assets/sun.svg?react";
+import moon from "../../assets/moon.svg?react";
 
 export const iconsMap = {
   globe,
@@ -18,4 +20,6 @@ export const iconsMap = {
   linkedin,
   sketchbook,
   clover,
+  sun,
+  moon,
 };

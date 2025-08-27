@@ -11,6 +11,9 @@
   position: relative;
   padding: var(--nav-padding);
   z-index: 1000;
+  @media (max-width: 340px) {
+    gap: 0;
+  }
 }
 .navBrand {
   flex-shrink: 0;
@@ -23,13 +26,10 @@
   font-weight: 800;
   color: var(--text-color-brown);
 
-  @media (max-width: 400px) {
-    font-size: 25px;
-  }
-  @media (max-width: 330px) {
+  @media (max-width: 450px) {
     font-size: 23px;
   }
-  @media (max-width: 300px) {
+  @media (max-width: 340px) {
     font-size: 19px;
   }
 }
@@ -160,11 +160,12 @@
   justify-content: start;
   gap: 5px;
   order: 2;
-  width: 125px;
   position: relative;
   @media (max-width: 900px) {
     order: 1;
-    width: 70px;
+  }
+  @media (max-width: 340px) {
+    gap: 3px;
   }
 }
 .languageToggleBtn {
@@ -172,7 +173,6 @@
   border-radius: 8px;
   background: none;
   padding: 0 5px;
-  /* color: var(--text-color-main); */
   color: var(--text-color-orange);
   border: 2px solid transparent;
 
@@ -180,7 +180,6 @@
     border-color: var(--text-color-beige);
     color: var(--text-color-beige);
     background-color: var(--block-background-brown);
-    /* background-color: var(--block-background-orange); */
     transition: color 0.2s ease;
   }
 }
@@ -208,6 +207,9 @@
 
 .globeImg {
   width: 18px;
+  @media (max-width: 340px) {
+    width: 13px;
+  }
 }
 .arrowImg {
   width: 15px;
@@ -316,4 +318,28 @@ button.hamburgerBtn {
 .menuConteiner {
   display: flex;
   flex-direction: column;
+}
+.themeToggleBtn {
+  border: none;
+  border-radius: 8px;
+  background: none;
+  padding: 5px;
+  color: var(--text-color-orange);
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: fit-content;
+
+  &:hover {
+    border-color: var(--text-color-beige);
+    color: var(--text-color-beige);
+    background-color: var(--block-background-brown);
+    transition: color 0.2s ease;
+  }
+}
+.themeIcon {
+  width: 15px;
+  height: 15px;
 }

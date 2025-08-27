@@ -17,12 +17,13 @@
 
 .postcard {
   background-color: var(--block-background-beige);
-  background-image: url("../../assets/canvas.jpg");
+  /* background-image: url("../../assets/canvas.jpg"); */
+  background-image: var(--postcard-bg);
   border-radius: 12px;
   padding: 24px;
   max-width: 600px;
   margin: 0 auto;
-  box-shadow: 0 4px 8px var(--block-background-brown);
+  /* box-shadow: 0 4px 8px var(--block-background-brown); */
   display: flex;
   flex-direction: column;
   gap: 24px;

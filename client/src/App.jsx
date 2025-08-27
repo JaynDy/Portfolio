@@ -28,6 +28,19 @@ function App() {
     return localStorage.getItem("activeSection") || "about";
   });
 
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "light";
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
+
   useEffect(() => {
     const saved = localStorage.getItem("activeSection") || "about";
     const currentPath = location.pathname.replace("/", "") || "about";
@@ -139,6 +152,8 @@ function App() {
             setActiveSection={setActiveSection}
             onMenuClick={handleMenuClick}
             onLanguageSelect={handleLanguageSelect}
+            onToggleTheme={toggleTheme}
+            currentTheme={theme}
           />
 
           <div className="middleBlock"></div>
