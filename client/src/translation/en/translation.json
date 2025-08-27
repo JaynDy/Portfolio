@@ -116,7 +116,7 @@
     "calendar": {
       "id": "calendar",
       "title": "Calendar (React, Node.js)",
-      "description": "This is a full-stack application helps to plan time by accounting for different types of events. It allows users to log in through Google authentication. It offers 'Week' and 'Day' views. In the Calendar section, a default calendar is used, with options to change its color or create a new one. To add an event, a form with validation is filled out, including fields for start time, end time, and recurrence. Recurring events are saved as a group that can be edited or deleted. All events are displayed in a table, occupying cells based on their time.",
+      "description": "This is a full-stack application for time planning with different types of events, designed for use only on large screens (not for mobile devices). It allows users to log in through Google authentication. It offers 'Week' and 'Day' views. In the Calendar section, a default calendar is used, with options to change its color or create a new one. To add an event, a form with validation is filled out, including fields for start time, end time, and recurrence. Recurring events are saved as a group that can be edited or deleted. All events are displayed in a table, occupying cells based on their time.",
       "technologies": [
         "React + Vite",
         "JavaScript",
