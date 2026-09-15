@@ -11,6 +11,7 @@
   position: relative;
   padding: var(--nav-padding);
   z-index: 1000;
+  font-family: var(--heading-font);
   @media (max-width: 340px) {
     gap: 0;
   }
@@ -161,6 +162,7 @@
   gap: 5px;
   order: 2;
   position: relative;
+  font-family: var(--heading-font);
   @media (max-width: 900px) {
     order: 1;
   }
